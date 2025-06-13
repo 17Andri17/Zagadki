@@ -69,7 +69,7 @@ riddles = [
                 Oczywiście my, postaraliśmy się utrudnić Wam sprawę możliwie najbardziej 
                 (żeby nie było zbyt dobrej atmosfery).<br>
                 Ale nie martwcie się — trzymajcie się siebie i logiki, a wszystko pójdzie gładko.<br>
-                Zawsze rozwiązywanie łamigłówek przychodziło Wam z łatwością, więc i tym razem liczymy na Wasze.<br>
+                Zawsze rozwiązywanie łamigłówek przychodziło Wam z łatwością, więc i tym razem liczymy na Wasze bystre umysły.<br>
                 A tak przy okazji, bardzo lubimy ukrywać cyfry w tekście. 
                 Może byście zrobili coś z tym faktem?
             </div>
