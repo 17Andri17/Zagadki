@@ -7,12 +7,15 @@ from io import BytesIO
 # Ustawienia
 # ====================
 st.set_page_config(page_title="Zagadki i Obraz", layout="wide")
-st.title("🧩 Odsłoń Obraz Rozwiązując Zagadki")
+st.title("🧩 Misja - odkryj życzenia ślubne")
 
 st.markdown("""
     <style>
         .stMainBlockContainer {
-            padding-top: 36px !important;
+            padding-top: 8px !important;
+        }
+        .stAppHeader {
+            display: none !important;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -38,7 +41,7 @@ def show_image_grid_html(unlocked):
         if unlocked[i]:
             img_data = pil_to_base64(image_parts[i])
         else:
-            with open("locked.png", "rb") as f:
+            with open(f"locked{i}.png", "rb") as f:
                 img_data = f"data:image/png;base64,{base64.b64encode(f.read()).decode()}"
         html += f'<img src="{img_data}" style="width: 350px; height: 210px; margin: 0; padding: 0;" />'
     html += '</div>'
@@ -132,7 +135,7 @@ riddles = [
             </div>
         </div>
         """,
-        "answer": "172",
+        "answer": "175",
         "placeholder": "kod 3-cyfrowy",
         "img": None
     },
@@ -171,6 +174,8 @@ main_tabs = st.tabs(["🖼️ Obraz", "🔐 Zagadki"])
 with main_tabs[0]:
     st.subheader("Ciekawe co tu jest ukryte?")
     show_image_grid_html(st.session_state.unlocked)
+    st.markdown("""<p align="center" style="font-size: 20px; margin-top: 10px;"><strong>Dzwońcie do Werki gdy potrzeba pomocy, <br> Mati raczej nie odbierze czy to dzień czy w nocy.</strong></p>
+""", unsafe_allow_html=True)
 
 # ====================
 # Zakładka z zagadkami
