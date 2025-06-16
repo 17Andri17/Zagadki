@@ -12,7 +12,7 @@ st.title("🧩 Misja - odkryj życzenia ślubne")
 st.markdown("""
     <style>
         .stMainBlockContainer {
-            padding-top: 8px !important;
+            padding-top: 5px !important;
         }
         .stAppHeader {
             display: none !important;
@@ -35,16 +35,51 @@ def pil_to_base64(img):
     img_str = base64.b64encode(buffer.getvalue()).decode()
     return f"data:image/png;base64,{img_str}"
 
+# def show_image_grid_html(unlocked):
+#     html = '<div style="display: flex; flex-wrap: wrap; width: 700px; margin: auto;">'
+#     for i in range(4):
+#         if unlocked[i]:
+#             img_data = pil_to_base64(image_parts[i])
+#         else:
+#             with open(f"locked{i}.png", "rb") as f:
+#                 img_data = f"data:image/png;base64,{base64.b64encode(f.read()).decode()}"
+#         html += f'<img src="{img_data}" style="width: 350px; height: 210px; margin: 0; padding: 0;" />'
+#     html += '</div>'
+#     st.markdown(html, unsafe_allow_html=True)
+    
 def show_image_grid_html(unlocked):
-    html = '<div style="display: flex; flex-wrap: wrap; width: 700px; margin: auto;">'
+    html = """
+    <style>
+    .image-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: auto;
+        max-width: 760px;
+    }
+    .image-grid img {
+        width: 40vw;
+        max-width: 380px;
+        height: auto;
+    }
+    @media (max-width: 500px) {
+        .image-grid img {
+            width: 46vw;
+        }
+    }
+    </style>
+    <div class="image-grid">
+    """
+
     for i in range(4):
         if unlocked[i]:
             img_data = pil_to_base64(image_parts[i])
         else:
             with open(f"locked{i}.png", "rb") as f:
                 img_data = f"data:image/png;base64,{base64.b64encode(f.read()).decode()}"
-        html += f'<img src="{img_data}" style="width: 350px; height: 210px; margin: 0; padding: 0;" />'
-    html += '</div>'
+        html += f'<img src="{img_data}" />'
+
+    html += "</div>"
     st.markdown(html, unsafe_allow_html=True)
 
 # ====================
