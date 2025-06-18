@@ -64,7 +64,7 @@ def show_image_grid_html(unlocked):
     }
     @media (max-width: 500px) {
         .image-grid img {
-            width: 46vw;
+            width: 40vw;
         }
     }
     </style>
